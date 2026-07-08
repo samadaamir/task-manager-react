@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const TaskForm = () => {
+const TaskForm = ({addTask}) => {
 
   const [task, setTask] = useState("")
 
@@ -12,7 +12,7 @@ const TaskForm = () => {
       alert("Please Enter Your Task..");
       return;
     }
-      console.log(task)
+      addTask(task)
       setTask("")
     
   }
@@ -29,9 +29,6 @@ const TaskForm = () => {
       className='bg-amber-200 font-bold border px-5 py-1.5 rounded-xl max-w-30 hover:bg-amber-300 transition'
       onClick={handleClick}
       >Add task</button>
-       <p className="text-gray-600">
-        Current Task: <span className="font-semibold">{task}</span>
-      </p>
     </div>
     
   )
