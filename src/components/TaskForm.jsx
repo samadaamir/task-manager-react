@@ -1,35 +1,36 @@
 import { useState } from "react";
 
 const TaskForm = ({ addTask }) => {
+
   const [task, setTask] = useState("");
 
-  const handleChange = (e) => {
-    setTask(e.target.value);
-  };
-
   const handleClick = () => {
+
     if (task.trim() === "") {
-      alert("Please enter a task.");
+      alert("Please Enter a Task");
       return;
     }
 
     addTask(task);
 
     setTask("");
+
   };
 
   return (
+
     <div className="flex flex-col gap-3">
+
       <h1 className="text-3xl font-bold text-center">
         Task Manager
       </h1>
 
       <input
         type="text"
-        placeholder="Enter Task"
         value={task}
-        onChange={handleChange}
-        className="border p-2 rounded-lg"
+        placeholder="Enter Task"
+        onChange={(e) => setTask(e.target.value)}
+        className="border rounded-lg p-2"
       />
 
       <button
@@ -38,8 +39,11 @@ const TaskForm = ({ addTask }) => {
       >
         Add Task
       </button>
+
     </div>
+
   );
+
 };
 
 export default TaskForm;
